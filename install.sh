@@ -1,9 +1,9 @@
 #!/bin/bash
-# Mega-Video Auto Installer
+# Mega-Video Auto Installer - Enhanced version
 
-set -e
+set -e  # Exit on any error
 
-# الألوان
+# Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -14,36 +14,43 @@ echo -e "${BLUE}╔════════════════════�
 echo -e "${BLUE}║      Mega-Video Installer         ║${NC}"
 echo -e "${BLUE}╚════════════════════════════════════╝${NC}"
 
-# قتل أي عمليات سابقة
+# Clean up old processes
 echo -e "${YELLOW}🔧 Cleaning up old processes...${NC}"
-pkill -f "python main.py" 2>/dev/null
-fuser -k 5000/tcp 2>/dev/null
+pkill -f "python main.py" 2>/dev/null || true
+fuser -k 5000/tcp 2>/dev/null || true
 
-# إنشاء المجلدات
+# Create necessary directories
 echo -e "${YELLOW}📁 Creating directories...${NC}"
 mkdir -p "$HOME/.config/mega-video"
 mkdir -p "$HOME/Videos/Mega-Video-Downloads"
 mkdir -p "$HOME/.cache/mega-video"
 
-# نسخ الملفات (باستثناء مجلد venv)
-echo -e "${YELLOW}📋 Copying files...${NC}"
-rsync -av --exclude='venv' --exclude='__pycache__' --exclude='*.log' ./ "$HOME/.config/mega-video/"
+# Copy files (excluding unnecessary ones)
+echo -e "${YELLOW}📋 Copying files to ~/.config/mega-video...${NC}"
+# Remove old destination first to avoid conflicts
+rm -rf "$HOME/.config/mega-video"
+mkdir -p "$HOME/.config/mega-video"
+cp -r . "$HOME/.config/mega-video/"
 
 cd "$HOME/.config/mega-video"
 
-# إنشاء البيئة الافتراضية وتثبيت المتطلبات
-echo -e "${YELLOW}🐍 Setting up Python environment...${NC}"
+# Setup Python virtual environment
+echo -e "${YELLOW}🐍 Setting up Python virtual environment...${NC}"
 python3 -m venv venv
 source venv/bin/activate
+
+# Upgrade pip and install dependencies
+echo -e "${YELLOW}📦 Installing Python packages...${NC}"
 pip install --upgrade pip
 pip install flask yt-dlp psutil
 
-# جعل run.sh قابلاً للتنفيذ
+# Make run.sh executable
 chmod +x run.sh
 
-# إنشاء ملف سطح المكتب
+# Create desktop entry
 echo -e "${YELLOW}🖥️ Creating desktop entry...${NC}"
-cat > "$HOME/.local/share/applications/Mega-Video.desktop" << EOF
+DESKTOP_FILE="$HOME/.local/share/applications/Mega-Video.desktop"
+cat > "$DESKTOP_FILE" << EOF
 [Desktop Entry]
 Name=Mega-Video
 Comment=Download videos from YouTube and other sites
@@ -55,12 +62,14 @@ Categories=Utility;AudioVideo;Network;
 StartupNotify=true
 EOF
 
-# تحديث قاعدة بيانات التطبيقات
-update-desktop-database "$HOME/.local/share/applications/" 2>/dev/null
+# Update desktop database
+if command -v update-desktop-database &> /dev/null; then
+    update-desktop-database "$HOME/.local/share/applications/"
+fi
 
 echo -e "${GREEN}✅ Installation complete!${NC}"
 echo -e "${BLUE}════════════════════════════════════════${NC}"
-echo -e "📁 App: $HOME/.config/mega-video"
-echo -e "📥 Downloads: $HOME/Videos/Mega-Video-Downloads"
+echo -e "📁 App location: $HOME/.config/mega-video"
+echo -e "📥 Downloads folder: $HOME/Videos/Mega-Video-Downloads"
 echo -e "🚀 Find 'Mega-Video' in your applications menu"
 echo -e "${BLUE}════════════════════════════════════════${NC}"
