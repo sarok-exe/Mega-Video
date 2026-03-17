@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Niri Video Downloader</title>
+    <title>Mega-Video</title>
     <link rel="icon" type="image/x-icon" href="/static/images/icon.ico">
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <style>
-        /* (نفس التنسيقات السابقة) */
         :root {
             --color-primary: #f01925;      --color-secondary: #1e1a31;     --color-accent: #ecb09c;
             --color-danger: #9b143a;        --color-dark: #6f153d;         --color-bright: #e62649;
@@ -67,7 +66,39 @@
             margin-bottom: 20px;
         }
 
-        h1 { text-align: center; color: var(--color-primary); margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        /* شريط الرابط العلوي */
+        .top-bar {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 30px;
+        }
+        .top-bar a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .top-bar a:hover {
+            color: var(--color-primary);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        h1 img {
+            width: 40px;
+            height: 40px;
+        }
+
         .note { text-align: center; color: var(--color-accent); font-size: 14px; margin-bottom: 20px; }
         .input-group { display: flex; gap: 10px; margin-bottom: 30px; }
         input { flex: 1; padding: 15px; border: 2px solid var(--color-soft); background: rgba(255,255,255,0.1); border-radius: 10px; font-size: 16px; color: white; }
@@ -94,7 +125,6 @@
         .download-btn:hover { background: var(--color-alert); }
         .download-btn:disabled { background: #555; cursor: wait; }
 
-        /* لوحة التنزيلات */
         .downloads-panel { background: rgba(30, 26, 49, 0.9); backdrop-filter: blur(5px); border-radius: 10px; padding: 20px; margin-top: 30px; border: 1px solid var(--color-accent); }
         .downloads-panel h2 { color: var(--color-primary); margin-bottom: 20px; font-size: 24px; }
         .downloads-panel h3 { color: var(--color-accent); margin: 15px 0 10px; font-size: 18px; }
@@ -117,7 +147,16 @@
     <div id="tsparticles"></div>
 
     <div class="container">
-        <h1>🎥 Niri Video Downloader</h1>
+        <!-- شريط الرابط العلوي -->
+        <div class="top-bar">
+            <a href="https://sarok-exe.github.io" target="_blank">🌐 Visit our website for more apps and tools</a>
+            <!-- استبدل الرابط برابط موقعك الفعلي -->
+        </div>
+
+        <h1>
+            <img src="/static/images/icon.png" alt="Mega-Video Logo">
+            Mega-Video Downloader
+        </h1>
         <p class="note">✨ MP4 merged first - Other formats can be merged with best audio</p>
         
         <div class="input-group">
@@ -154,7 +193,7 @@
     </div>
 
     <script>
-        // تهيئة الجسيمات (نفس السابق)
+        // تهيئة الجسيمات
         tsParticles.load({
             id: "tsparticles",
             options: {
@@ -202,10 +241,8 @@
                 const totalPhases = info.total_phases || 1;
                 const currentPhase = info.current_phase || 1;
                 
-                // حساب التقدم الكلي (مراعيًا المراحل)
                 let overallPercent = 0;
                 if (totalPhases > 1 && prog.percent !== undefined) {
-                    // المرحلة الحالية تساهم بنسبة 1/totalPhases
                     const phaseContribution = 1 / totalPhases;
                     const baseProgress = (currentPhase - 1) * phaseContribution;
                     overallPercent = (baseProgress + (prog.percent / 100) * phaseContribution) * 100;
@@ -213,7 +250,6 @@
                     overallPercent = prog.percent || 0;
                 }
                 
-                // نص المرحلة
                 let phaseText = '';
                 switch (phase) {
                     case 'downloading_video': phaseText = `📹 Downloading video (${currentPhase}/${totalPhases})`; break;
@@ -321,7 +357,6 @@
             }
         }
 
-        // دوال جلب معلومات الفيديو والتحميل (نفس السابق)
         async function getInfo() {
             const url = document.getElementById('url').value;
             if (!url) { alert('الرجاء إدخال رابط'); return; }
