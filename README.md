@@ -1,45 +1,53 @@
-الصفحة
-🎥 Mega-Video
-<div align="center"> <img src="statics/images/icon.png" width="150" alt="Mega-Video Logo"> <h3>A powerful video downloader with web interface</h3> <p>Beautiful, functional, and fully integrated with your desktop</p> </div>
-📸 Screenshots
+# 🎥 Mega-Video
+
 <div align="center">
-🖥️ Main Interface
-Home Page	Video Info	Download Manager
-<img src="screenshots/home.png" width="300">
+  <img src="static/images/icon.png" width="150" alt="Mega-Video Logo">
+  <h3>A powerful video downloader with web interface</h3>
+  <p>Beautiful, functional, and fully integrated with your desktop</p>
+</div>
 
-✨ Features
-Category	Tools/Features
-🎯 Core Features	YouTube, Vimeo, Dailymotion + 1000+ sites
-🎚️ Quality Options	144p to 4K, MP4/WebM formats
-🔄 Auto Merge	Best video + best audio using ffmpeg
-📊 Download Manager	Progress bars, speed, ETA, pause/resume
-🖥️ Desktop Integration	Runs from applications menu, no terminal window
-🎨 Beautiful UI	Animated particle background, modern design
-📁 Organized Storage	Videos saved to ~/Videos/Mega-Video-Downloads
-⚠️ Requirements
-System Requirements
-Linux (Tested on Arch, works on Debian/Ubuntu/Fedora)
+---
 
-Python 3.8+
+## 📸 Screenshot
 
-ffmpeg (installed automatically)
+<div align="center">
+  <img src="screenshots/main.png" width="800" alt="Mega-Video Main Interface">
+  <p><em>Mega-Video main interface</em></p>
+</div>
 
-Dependencies
-The installer handles these automatically:
+---
 
-flask (web server)
+## ✨ Features
 
-yt-dlp (video downloading)
+| Category | Description |
+|----------|-------------|
+| 🎯 **Core Features** | YouTube, Vimeo, Dailymotion + 1000+ sites |
+| 🎚️ **Quality Options** | 144p to 4K, MP4/WebM formats |
+| 🔄 **Auto Merge** | Best video + best audio using ffmpeg |
+| 📊 **Download Manager** | Progress bars, speed, ETA, pause/resume |
+| 🖥️ **Desktop Integration** | Runs from applications menu, no terminal |
+| 🎨 **Beautiful UI** | Animated particle background, modern design |
+| 📁 **Organized Storage** | Videos saved to `~/Videos/Mega-Video-Downloads` |
 
-psutil (process management)
+---
 
-🚀 Quick Installation
-One-liner Installation
-bash
+## ⚠️ Requirements
+
+- **Linux** (Tested on Arch, works on Debian/Ubuntu/Fedora)
+- **Python 3.8+**
+- **ffmpeg** (installed automatically)
+
+---
+
+## 🚀 Quick Installation
+
+```bash
 git clone https://github.com/sarok-exe/mega-video.git
 cd mega-video
 chmod +x install.sh
 ./install.sh
+
+
 What the installer does:
 📦 Checks requirements - Python, ffmpeg, git
 
