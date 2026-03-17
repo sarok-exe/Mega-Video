@@ -1,5 +1,9 @@
 #!/bin/bash
+<<<<<<< HEAD
 # Mega-Video Installer - Clean version
+=======
+# Mega-Video Auto Installer - Enhanced version
+>>>>>>> 85256138ea2dc972a2ee43ffbdb6d84b065bf868
 
 set -e  # Exit on any error
 
@@ -25,8 +29,14 @@ mkdir -p "$HOME/.config/mega-video"
 mkdir -p "$HOME/Videos/Mega-Video-Downloads"
 mkdir -p "$HOME/.cache/mega-video"
 
+<<<<<<< HEAD
 # Copy files
 echo -e "${YELLOW}📋 Copying files to ~/.config/mega-video...${NC}"
+=======
+# Copy files (excluding unnecessary ones)
+echo -e "${YELLOW}📋 Copying files to ~/.config/mega-video...${NC}"
+# Remove old destination first to avoid conflicts
+>>>>>>> 85256138ea2dc972a2ee43ffbdb6d84b065bf868
 rm -rf "$HOME/.config/mega-video"
 mkdir -p "$HOME/.config/mega-video"
 cp -r . "$HOME/.config/mega-video/"
