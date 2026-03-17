@@ -47,8 +47,8 @@ cd mega-video
 chmod +x install.sh
 ./install.sh
 ```
-
-##🧹 Uninstall 
+---
+##  🧹Uninstall 
 
 # Remove application files
 ```
