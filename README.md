@@ -46,3 +46,23 @@ git clone https://github.com/sarok-exe/mega-video.git
 cd mega-video
 chmod +x install.sh
 ./install.sh
+```
+
+##🧹 Uninstall 
+
+# Remove application files
+```
+rm -rf ~/.config/mega-video
+rm -rf ~/.cache/mega-video
+```
+
+# Remove videos (optional)
+```
+rm -rf ~/Videos/Mega-Video-Downloads
+```
+
+# Remove desktop entry
+```
+rm ~/.local/share/applications/Mega-Video.desktop
+update-desktop-database ~/.local/share/applications/
+```
