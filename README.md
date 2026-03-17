@@ -46,7 +46,7 @@ git clone https://github.com/sarok-exe/mega-video.git
 cd mega-video
 chmod +x install.sh
 ./install.sh
-
+```
 
 What the installer does:
 📦 Checks requirements - Python, ffmpeg, git
