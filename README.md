@@ -11,7 +11,7 @@
 ## 📸 Screenshot
 
 <div align="center">
-  <img src="screenshots/main.png" width="800" alt="Mega-Video Main Interface">
+  <img src="static/images/main.png" width="800" alt="Mega-Video Main Interface">
   <p><em>Mega-Video main interface</em></p>
 </div>
 
