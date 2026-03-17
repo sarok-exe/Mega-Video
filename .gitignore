@@ -1,32 +1,25 @@
-# البيئة الافتراضية
+# Python
 venv/
-.env/
-
-# ملفات Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .pytest_cache/
 
-# مجلدات التحميل والكاش
+# Downloads
 downloads/
-__pycache__/
-*.log
-*.db
-
-# مجلد التحميلات (لأن المستخدم سينشئه بنفسه)
-Videos/
 *.mp4
 *.mkv
 *.webm
+*.log
 
-# ملفات النظام
+# Cache
+.cache/
+__pycache__/
+
+# System
 .DS_Store
 Thumbs.db
 *.swp
 *.swo
 *~
-
-# ملفات التكوين المحلية
-config.local.ini
