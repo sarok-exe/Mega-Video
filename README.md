@@ -1,18 +1,11 @@
 الصفحة
 🎥 Mega-Video
-<div align="center"> <img src="assets/images/icon.png" width="150" alt="Mega-Video Logo"> <h3>A powerful video downloader with web interface</h3> <p>Beautiful, functional, and fully integrated with your desktop</p> </div>
+<div align="center"> <img src="statics/images/icon.png" width="150" alt="Mega-Video Logo"> <h3>A powerful video downloader with web interface</h3> <p>Beautiful, functional, and fully integrated with your desktop</p> </div>
 📸 Screenshots
 <div align="center">
 🖥️ Main Interface
 Home Page	Video Info	Download Manager
-<img src="screenshots/home.png" width="300">	<img src="screenshots/video-info.png" width="300">	<img src="screenshots/manager.png" width="300">
-⚙️ Features
-Quality Selection	Download Progress	Completed Downloads
-<img src="screenshots/qualities.png" width="300">	<img src="screenshots/progress.png" width="300">	<img src="screenshots/completed.png" width="300">
-</div>
-🎥 Video Demo
-<div align="center"> <video src="assets/videos/demo.mp4" width="800" controls> Your browser does not support the video tag. </video> <p><em>Quick tour of Mega-Video downloader</em></p> </div>
-⬇️ Download demo video
+<img src="screenshots/home.png" width="300">
 
 ✨ Features
 Category	Tools/Features
