@@ -1,4 +1,5 @@
 # Mega-Video
-Web app to download videos using yt-dlp & ffmpeg.
+
+Web app for downloading videos from YouTube, Vimeo, and other platforms. Uses yt-dlp for extraction and ffmpeg for conversion. Simple HTML interface.
 
 [Wiki](https://github.com/sarok-exe/Mega-Video/wiki)
